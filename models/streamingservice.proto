@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+option go_package = "generated/pb";
+
+service StreamingService {
+  rpc GetVideoData(stream GetVideoDataRequest) returns (GetVideoDataResponse){}
+}
+
+message GetVideoDataRequest {
+  bytes Content = 1;
+}
+
+message GetVideoDataResponse{
+  StatusCode StatusCode = 1;
+
+}
+
+enum StatusCode {
+  FAILURE = 0;
+  SUCCESS = 1;
+}
